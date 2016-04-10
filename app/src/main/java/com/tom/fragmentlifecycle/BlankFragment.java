@@ -1,8 +1,11 @@
 package com.tom.fragmentlifecycle;
 
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +52,7 @@ public class BlankFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("FRAG", "onCreate");
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -58,8 +62,61 @@ public class BlankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        Log.d("FRAG", "onCreateView");
         return inflater.inflate(R.layout.fragment_blank, container, false);
     }
 
+    @Override
+    public void onAttach(Context context) {
+        Log.d("FRAG", "onAttach");
+        super.onAttach(context);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        Log.d("FRAG", "onActivityCreated");
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    @Override
+    public void onStart() {
+        Log.d("FRAG", "onStart");
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        Log.d("FRAG", "onResume");
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        Log.d("FRAG", "onPause");
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        Log.d("FRAG", "onStop");
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroyView() {
+        Log.d("FRAG", "onDestroyView");
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.d("FRAG", "onDestroy");
+        super.onDestroy();
+    }
+
+    @Override
+    public void onDetach() {
+        Log.d("FRAG", "onDetach");
+        super.onDetach();
+    }
 }
